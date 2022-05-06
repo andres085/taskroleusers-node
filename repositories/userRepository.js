@@ -5,11 +5,19 @@ module.exports.userRepositoryCreate = async (data) => {
 }
 
 module.exports.userRepositoryGetAll = async () => {
-    return await db.User.findAll();
+    return await db.User.findAll({
+        attributes: ['username', 'email']
+    });
 }
 
 module.exports.userRepositoryGetOne = async (id) => {
-    return await db.User.findByPk(id);
+    return await db.User.findByPk(id, {
+        attributes: ['username', 'email'],
+        include: {
+            model: db.Task,
+            as: 'tasks'
+        }
+    });
 }
 
 module.exports.userRepositoryUpdate = async (id, data) => {
