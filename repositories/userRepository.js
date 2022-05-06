@@ -17,11 +17,11 @@ module.exports.userRepositoryUpdate = async (id, data) => {
         username: data.username,
         email: data.email,
         password: data.password
-    }, { where: id });
+    }, { where: {id:id} });
     return updatedUser;
 }
 
 module.exports.userRepositoryDelete = async (id) => {
-    const deletedUser = await db.User.destroy({ where: id });
+    const deletedUser = await db.User.destroy({ where: {id: id} });
     return deletedUser;
 }
