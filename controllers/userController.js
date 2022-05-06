@@ -8,7 +8,7 @@ module.exports.getAllUsers = async () => {
     return await userService.userServiceGetAll();
 }
 
-module.exports.getOneUser = async (id) => {
+module.exports.getUser = async (id) => {
     return await userService.userServiceGetOne(id);
 }
 
