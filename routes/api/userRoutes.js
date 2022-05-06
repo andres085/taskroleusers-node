@@ -33,3 +33,5 @@ router.delete('/:id', asyncHandler(async (req, res) => {
     await userController.deleteUser(id);
     res.status(204).json();
 }));
+
+module.exports = router;
